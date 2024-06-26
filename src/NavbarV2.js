@@ -31,9 +31,11 @@ function NavbarV2(props) {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MERSIVITY
-      </Typography>
+      <Link to="/Home" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <IconButton color="inherit">
+        <Typography variant="h4">MERSIVITY</Typography>
+      </IconButton>
+    </Link>
       <Divider />
       <List>
         {navItems.map((item, index) => (
@@ -63,9 +65,11 @@ function NavbarV2(props) {
           >
             <MenuIcon />
           </IconButton>
-          <IconButton color="inherit">
-            <Typography variant="h4">MERSIVITY</Typography>
-          </IconButton>
+          <Link to="/Home" style={{ textDecoration: 'none', color: 'inherit' }}>
+      <IconButton color="inherit">
+        <Typography variant="h4">MERSIVITY</Typography>
+      </IconButton>
+    </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item, index) => (
               <Button key={index} component={Link} to={`/${item.replace(/\s+/g, '-').toLowerCase()}`} sx={{ color: '#fff' }}>
