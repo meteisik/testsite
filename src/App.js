@@ -19,7 +19,7 @@ function App() {
     <div className="App">
 
   <BrowserRouter>
-      <NavbarV2/>
+     
       <Switch>
    
    

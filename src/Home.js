@@ -77,7 +77,6 @@ const HeroBox = styled(Box)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.primary.contrastText,
   padding: theme.spacing(2),
-  marginTop: '0px', // Ensure there is no margin at the top
   [theme.breakpoints.down('sm')]: {
     height: 'auto',
     padding: theme.spacing(1),
@@ -142,15 +141,9 @@ export default function Home() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
       <CssBaseline />
-   
-      <Box
-        sx={{
-          marginTop: '0px', // Ensure there is no margin at the top
-          flexGrow: 1,
-          backgroundColor: '#f0f8ff', // Light blue color
-        }}
-      >
-        <HeroBox>
+      <NavbarV2 />
+      <Box sx={{ flexGrow: 1, backgroundColor: '#f0f8ff', display: 'flex', flexDirection: 'column' }}>
+        <HeroBox sx={{ marginTop: '64px' }}>
           <Typography variant="h2" component="div" gutterBottom>
             Mersivity
           </Typography>
@@ -179,7 +172,6 @@ export default function Home() {
                 </List>
               </SectionBox>
             </Grid>
-
             <Grid item xs={12}>
               <SectionBox>
                 <Typography variant="h5" sx={{ mt: 2, mb: 1, textAlign: 'center' }}>
@@ -210,10 +202,8 @@ export default function Home() {
           </Grid>
         </Container>
       </Box>
-      {/* Bottom Navbar */}
-      <Box sx={{ backgroundColor: '#2196f3', color: '#fff', p: 2, textAlign: 'center' }}>
-      <Typography sx={{ fontSize: '0.5rem' }}>Mete TEST V1 Mannlab Site</Typography>
-
+      <Box component="footer" sx={{ backgroundColor: '#2196f3', color: '#fff', p: 2, textAlign: 'center' }}>
+        <Typography sx={{ fontSize: '0.75rem' }}>Mete Build V1</Typography>
       </Box>
 
       {/* Image Dialog */}

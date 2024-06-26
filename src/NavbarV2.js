@@ -14,9 +14,10 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
+
 const drawerWidth = 240;
 const navItems = [
- '📢 Symposium', '❤️ Signup', '⛱️ Venue',
+  '📢 Symposium', '❤️ Signup', '⛱️ Venue',
   '👩 People', '🕑 Schedule', '📖 Proceedings', '🏆 Prize',
   '🌔 Festival', '🖼️ Gallery', '📰 News', '🔗 Links',
 ];
@@ -32,10 +33,8 @@ function NavbarV2(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Link to="/Home" style={{ textDecoration: 'none', color: 'inherit' }}>
-      <IconButton color="inherit">
         <Typography variant="h4">MERSIVITY</Typography>
-      </IconButton>
-    </Link>
+      </Link>
       <Divider />
       <List>
         {navItems.map((item, index) => (
@@ -54,7 +53,7 @@ function NavbarV2(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav">
+      <AppBar component="nav" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -66,10 +65,8 @@ function NavbarV2(props) {
             <MenuIcon />
           </IconButton>
           <Link to="/Home" style={{ textDecoration: 'none', color: 'inherit' }}>
-      <IconButton color="inherit">
-        <Typography variant="h4">MERSIVITY</Typography>
-      </IconButton>
-    </Link>
+            <Typography variant="h4">MERSIVITY</Typography>
+          </Link>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item, index) => (
               <Button key={index} component={Link} to={`/${item.replace(/\s+/g, '-').toLowerCase()}`} sx={{ color: '#fff' }}>
@@ -79,23 +76,21 @@ function NavbarV2(props) {
           </Box>
         </Toolbar>
       </AppBar>
-      <nav>
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </nav>
+      <Drawer
+        container={container}
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{
+          keepMounted: true, // Better open performance on mobile.
+        }}
+        sx={{
+          display: { xs: 'block', sm: 'none' },
+          '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+        }}
+      >
+        {drawer}
+      </Drawer>
     </Box>
   );
 }
